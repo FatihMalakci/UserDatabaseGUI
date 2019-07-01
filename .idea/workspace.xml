@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58e13a2f-9bb9-44b4-b504-030335e42c6a" name="Default Changelist" comment="" />
+    <list default="true" id="58e13a2f-9bb9-44b4-b504-030335e42c6a" name="Default Changelist" comment="database wip">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interface.ui" beforeDir="false" afterPath="$PROJECT_DIR$/interface.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/users.db" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,48 +56,57 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="154" />
+          <entry key="py" value="1965" />
+          <entry key="txt" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="154" />
+          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="Python" value="1965" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="1" />
+          <entry key="py" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="1" />
+          <entry key="Python" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.compare" value="1" />
-          <entry key="git.branch.merge" value="2" />
+          <entry key="git.branch.merge" value="3" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-966">
-              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+            <state relative-caret-position="378">
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+              <folding>
+                <element signature="e#198#240#0" expanded="true" />
+                <marker date="1561990675649" expanded="true" signature="363:931" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="168">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <marker date="1561989896156" expanded="true" signature="52:186" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,6 +120,12 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>pencere</find>
+      <find>load</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="PATH_TO_GIT" value="C:\Users\RealB\cmder\vendor\git-for-windows\bin\git.exe" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -117,14 +138,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/interface.py" />
         <option value="$PROJECT_DIR$/database.py" />
+        <option value="$PROJECT_DIR$/interface.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1172" />
-    <option name="width" value="1395" />
+    <option name="x" value="1428" />
+    <option name="width" value="1139" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -158,8 +179,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/cmder/vendor/git-for-windows/bin/git.exe" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/site-packages/pyqt5_tools/designer.exe" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -173,7 +194,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.database">
+  <component name="RunManager" selected="Python.main">
     <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="userdatabasebrowser" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -222,8 +243,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.database" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.database" />
       </list>
     </recent_temporary>
   </component>
@@ -238,18 +259,40 @@
       <option name="presentableId" value="Default" />
       <updated>1561807701140</updated>
     </task>
+    <task id="LOCAL-00001" summary="database wip">
+      <created>1561950938628</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1561950938628</updated>
+    </task>
+    <task id="LOCAL-00002" summary="database wip">
+      <created>1561951089948</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1561951089948</updated>
+    </task>
+    <task id="LOCAL-00003" summary="database wip">
+      <created>1561951470881</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561951470881</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1172" y="0" width="1395" height="1047" extended-state="0" />
+    <frame x="1428" y="0" width="1139" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12980421" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14692788" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32941177" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -292,19 +335,30 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="database wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="database wip" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/interface.py">
+    <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-966">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        <state relative-caret-position="168">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <marker date="1561989896156" expanded="true" signature="52:186" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database.py">
+    <entry file="file://$PROJECT_DIR$/interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="378">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+          <folding>
+            <element signature="e#198#240#0" expanded="true" />
+            <marker date="1561990675649" expanded="true" signature="363:931" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

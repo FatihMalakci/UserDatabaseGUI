@@ -7,21 +7,41 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import database
+from database import connectdatabase
+import sqlite3
 
 class Ui_MainWindow(object):
+
+    def loaddata(self):
+        # connection = sqlite3.connect('users.db')
+        query = "SELECT * FROM users"
+        # connection.execute(query)
+        result = connectdatabase('users.db').execute(query)
+        self.pencere.setRowCount(0)
+        for row_number, row_data in enumerate(result):
+            self.pencere.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.pencere.setItem(row_number,column_number,QtWidgets.QTableWidgetItem(str(data)))
+
+        connectdatabase('users.db').close()
+        print("Database closed")
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(844, 624)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.adduser = QtWidgets.QPushButton(self.centralwidget)
-        self.adduser.setGeometry(QtCore.QRect(550, 320, 111, 41))
+        self.adduserbtn = QtWidgets.QPushButton(self.centralwidget)
+        self.adduserbtn.setGeometry(QtCore.QRect(550, 370, 111, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.adduser.setFont(font)
-        self.adduser.setObjectName("adduser")
-        self.pencere = QtWidgets.QListView(self.centralwidget)
-        self.pencere.setGeometry(QtCore.QRect(10, 100, 441, 371))
+        self.adduserbtn.setFont(font)
+        self.adduserbtn.setObjectName("adduserbtn")
+        self.pencere = QtWidgets.QTableWidget(self.centralwidget)
+        self.pencere.setGeometry(QtCore.QRect(10, 100, 441, 361))
+        self.pencere.setRowCount(11)
+        self.pencere.setColumnCount(4)
         self.pencere.setObjectName("pencere")
         self.users = QtWidgets.QLabel(self.centralwidget)
         self.users.setGeometry(QtCore.QRect(170, 40, 161, 41))
@@ -33,7 +53,7 @@ class Ui_MainWindow(object):
         self.users.setFont(font)
         self.users.setObjectName("users")
         self.namebox = QtWidgets.QLineEdit(self.centralwidget)
-        self.namebox.setGeometry(QtCore.QRect(480, 130, 101, 31))
+        self.namebox.setGeometry(QtCore.QRect(480, 180, 101, 31))
         self.namebox.setObjectName("namebox")
         self.usercount = QtWidgets.QLCDNumber(self.centralwidget)
         self.usercount.setGeometry(QtCore.QRect(230, 490, 91, 41))
@@ -48,7 +68,7 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(500, 550, 341, 31))
+        self.label.setGeometry(QtCore.QRect(500, 530, 341, 31))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -72,7 +92,7 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(480, 90, 221, 21))
+        self.label_5.setGeometry(QtCore.QRect(480, 140, 221, 21))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -80,10 +100,10 @@ class Ui_MainWindow(object):
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
         self.sirnamebox = QtWidgets.QLineEdit(self.centralwidget)
-        self.sirnamebox.setGeometry(QtCore.QRect(600, 130, 101, 31))
+        self.sirnamebox.setGeometry(QtCore.QRect(610, 180, 101, 31))
         self.sirnamebox.setObjectName("sirnamebox")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(480, 210, 171, 21))
+        self.label_6.setGeometry(QtCore.QRect(480, 250, 131, 21))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -91,8 +111,34 @@ class Ui_MainWindow(object):
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
         self.agebox = QtWidgets.QLineEdit(self.centralwidget)
-        self.agebox.setGeometry(QtCore.QRect(480, 250, 101, 31))
+        self.agebox.setGeometry(QtCore.QRect(480, 300, 101, 31))
         self.agebox.setObjectName("agebox")
+        self.label_7 = QtWidgets.QLabel(self.centralwidget)
+        self.label_7.setGeometry(QtCore.QRect(630, 250, 151, 21))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_7.setFont(font)
+        self.label_7.setObjectName("label_7")
+        self.phonebox = QtWidgets.QLineEdit(self.centralwidget)
+        self.phonebox.setGeometry(QtCore.QRect(630, 300, 101, 31))
+        self.phonebox.setObjectName("phonebox")
+        self.loadusersbtn = QtWidgets.QPushButton(self.centralwidget)
+        self.loadusersbtn.setGeometry(QtCore.QRect(660, 60, 91, 31))
+        self.loadusersbtn.setObjectName("loadusersbtn")
+
+        self.loadusersbtn.clicked.connect(self.loaddata)
+
+        self.Databasenamelabel = QtWidgets.QLabel(self.centralwidget)
+        self.Databasenamelabel.setGeometry(QtCore.QRect(690, 560, 141, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.Databasenamelabel.setFont(font)
+        self.Databasenamelabel.setText("")
+        self.Databasenamelabel.setObjectName("Databasenamelabel")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 844, 21))
@@ -113,7 +159,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.adduser.setText(_translate("MainWindow", "Add User"))
+        self.adduserbtn.setText(_translate("MainWindow", "Add User"))
         self.users.setText(_translate("MainWindow", "User List"))
         self.label_2.setText(_translate("MainWindow", "Number of Users"))
         self.label.setText(_translate("MainWindow", "The User Information is Provided by SQLite3 Database"))
@@ -121,9 +167,10 @@ class Ui_MainWindow(object):
         self.label_4.setText(_translate("MainWindow", "github.com/fatihmalakci"))
         self.label_5.setText(_translate("MainWindow", "Enter User\'s Name/Sirname:"))
         self.label_6.setText(_translate("MainWindow", "Enter User\'s Age:"))
+        self.label_7.setText(_translate("MainWindow", "Enter User\'s Phone:"))
+        self.loadusersbtn.setText(_translate("MainWindow", "Load Users"))
         self.menuUsers.setTitle(_translate("MainWindow", "Main Window"))
         self.actionMain_Window.setText(_translate("MainWindow", "Main Window"))
-
 
 if __name__ == "__main__":
     import sys
