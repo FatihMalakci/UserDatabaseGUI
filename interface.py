@@ -7,7 +7,6 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sqlite3
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -124,8 +123,6 @@ class Ui_MainWindow(object):
         self.label_6.setText(_translate("MainWindow", "Enter User\'s Age:"))
         self.menuUsers.setTitle(_translate("MainWindow", "Main Window"))
         self.actionMain_Window.setText(_translate("MainWindow", "Main Window"))
-
-    def adduser(self)
 
 
 if __name__ == "__main__":
