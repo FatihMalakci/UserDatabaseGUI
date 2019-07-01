@@ -14,6 +14,7 @@ import sqlite3
 class Ui_MainWindow(object):
 
     def loaddata(self):
+        self.Databasenamelabel.setText(database.databasename())
         # connection = sqlite3.connect('users.db')
         query = "SELECT * FROM users"
         # connection.execute(query)
@@ -24,8 +25,29 @@ class Ui_MainWindow(object):
             for column_number, data in enumerate(row_data):
                 self.pencere.setItem(row_number,column_number,QtWidgets.QTableWidgetItem(str(data)))
 
-        connectdatabase('users.db').close()
-        print("Database closed")
+
+    def adduserbutton(self):
+        check = database.checkuser(self.namebox.text(),self.sirnamebox.text())
+        if self.namebox.text() == '' or self.sirnamebox.text() == '' or self.agebox.text() == '' or self.phonebox.text() == '':
+            self.warningmassage.setText('Error! Please fill all the areas!')
+        elif check == True:
+            self.warningmassage.setText('Error! User already exists!')
+        else:
+            database.insertuser(self.namebox.text(),self.sirnamebox.text(),self.agebox.text(),self.phonebox.text())
+            self.warningmassage.setText('User Added Successfully.')
+            self.loadusersbtn.click()
+
+    def deleteuserbutton(self):
+        check = database.checkuser(self.namebox.text(), self.sirnamebox.text())
+        if self.namebox.text() == '' or self.sirnamebox.text() == '':
+            self.warningmassage.setText('Error! Please fill name and sirname areas!')
+        elif check == False:
+            self.warningmassage.setText('Error! User does not exists!')
+        else:
+            self.warningmassage.setText(f'User {self.namebox.text()} {self.sirnamebox.text()} Deleted Successfully.')
+            database.deleteuser(self.namebox.text(),self.sirnamebox.text())
+            self.loadusersbtn.click()
+
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -33,11 +55,23 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.adduserbtn = QtWidgets.QPushButton(self.centralwidget)
-        self.adduserbtn.setGeometry(QtCore.QRect(550, 370, 111, 41))
+        self.adduserbtn.setGeometry(QtCore.QRect(480, 370, 111, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.adduserbtn.setFont(font)
         self.adduserbtn.setObjectName("adduserbtn")
+
+        self.adduserbtn.clicked.connect(self.adduserbutton)
+
+        self.deluserbtn = QtWidgets.QPushButton(self.centralwidget)
+        self.deluserbtn.setGeometry(QtCore.QRect(630, 370, 111, 41))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.deluserbtn.setFont(font)
+        self.deluserbtn.setObjectName("deluserbtn")
+
+        self.deluserbtn.clicked.connect(self.deleteuserbutton)
+
         self.pencere = QtWidgets.QTableWidget(self.centralwidget)
         self.pencere.setGeometry(QtCore.QRect(10, 100, 441, 361))
         self.pencere.setRowCount(11)
@@ -115,6 +149,17 @@ class Ui_MainWindow(object):
         self.agebox.setObjectName("agebox")
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
         self.label_7.setGeometry(QtCore.QRect(630, 250, 151, 21))
+        self.warningmassage = QtWidgets.QLabel(self.centralwidget)
+        self.warningmassage.setGeometry(QtCore.QRect(460, 420, 341, 51))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.warningmassage.setFont(font)
+        self.warningmassage.setAutoFillBackground(False)
+        self.warningmassage.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.warningmassage.setText("")
+        self.warningmassage.setObjectName("warningmassage")
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -131,7 +176,7 @@ class Ui_MainWindow(object):
         self.loadusersbtn.clicked.connect(self.loaddata)
 
         self.Databasenamelabel = QtWidgets.QLabel(self.centralwidget)
-        self.Databasenamelabel.setGeometry(QtCore.QRect(690, 560, 141, 21))
+        self.Databasenamelabel.setGeometry(QtCore.QRect(540, 560, 250, 21))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
@@ -155,13 +200,15 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.loadusersbtn.click()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.adduserbtn.setText(_translate("MainWindow", "Add User"))
+        self.deluserbtn.setText(_translate("MainWindow", "Delete User"))
         self.users.setText(_translate("MainWindow", "User List"))
-        self.label_2.setText(_translate("MainWindow", "Number of Users"))
+        self.label_2.setText(_translate("MainWindow", "Number of Users:"))
         self.label.setText(_translate("MainWindow", "The User Information is Provided by SQLite3 Database"))
         self.label_3.setText(_translate("MainWindow", "User Database by Fatih Malakçı"))
         self.label_4.setText(_translate("MainWindow", "github.com/fatihmalakci"))

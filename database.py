@@ -8,34 +8,54 @@ def connectdatabase(database_name):
     return c
 
 #Creating our table.
-def createtable(table):
+def createtable(table,row1,row2,row3,row4):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute(f'''CREATE TABLE {table}
-             (name,sirname,age)''')
+             ({row1},{row2},{row3},{row4})''')
+    conn.commit()
+    c.close()
 
-def insertuser(name,sirname,age):
+def insertuser(name,sirname,age,phone):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute("INSERT INTO users VALUES(?,?,?)",(name,sirname,age))
-    print(f'User created Name : {name} Sirname : {sirname} Age : {age}')
+    c.execute("INSERT INTO users VALUES(?,?,?,?)",(name,sirname,age,phone))
+    print(f'User created Name : {name} Sirname : {sirname} Age : {age} Phone : {phone}')
     conn.commit()
     conn.close()
+    print('Database closed.')
 
 def deleteuser(name,sirname):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute(f"DELETE FROM users WHERE name='{name}' AND sirname= '{sirname}'")
-    print(f"User {name} {sirname} Deleted.")
-    conn.commit()
-    conn.close()
+    if c.execute(f"SELECT EXISTS(SELECT name from users WHERE name like '%{name}%' AND sirname like '%{sirname}%')").fetchall() == [(1,)]:
+        c.execute(f"DELETE FROM users WHERE name LIKE '%{name}%' and sirname LIKE '%{sirname}%'")
+        conn.commit()
+        conn.close()
+        return f"User {name} {sirname} Deleted."
+    else:
+        return "User Not found"
+        conn.commit()
+        conn.close()
 
+def checkuser(name,sirname):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    getitem = c.execute(f"SELECT EXISTS(SELECT name from users WHERE name like '%{name}%' AND sirname like '%{sirname}%')").fetchall()
+    if getitem == [(1,)]:
+        return True
+    else:
+        return False
 
 def databasename():
-    print('Now using the Users.db database')
+    return 'Now using the users.db Database.'
 
 
 if __name__ == '__main__':
-    gir = input('Enter a database name :')
-    # createtable(gir)
-    connectdatabase(gir)
+    # table_name = input('Enter a table name :\n')
+    # row_1 = input('Enter first row name :\n')
+    # row_2 = input('Enter second row name :\n')
+    # row_3 = input('Enter third row name :\n')
+    # row_4 = input('Enter fourth row name :\n')
+    # createtable(table_name,row_1,row_2,row_3,row_4)
+    checkuser('Sevgi','sad')
