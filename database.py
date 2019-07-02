@@ -50,12 +50,18 @@ def checkuser(name,sirname):
 def databasename():
     return 'Now using the users.db Database.'
 
+def countusers():
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    value = c.execute("SELECT Count(*) FROM users").fetchall()
+    conn.close()
+    return [x[0] for x in value][0]
+
 
 if __name__ == '__main__':
-    # table_name = input('Enter a table name :\n')
-    # row_1 = input('Enter first row name :\n')
-    # row_2 = input('Enter second row name :\n')
-    # row_3 = input('Enter third row name :\n')
-    # row_4 = input('Enter fourth row name :\n')
-    # createtable(table_name,row_1,row_2,row_3,row_4)
-    checkuser('Sevgi','sad')
+    table_name = input('Enter a table name :\n')
+    row_1 = input('Enter first row name :\n')
+    row_2 = input('Enter second row name :\n')
+    row_3 = input('Enter third row name :\n')
+    row_4 = input('Enter fourth row name :\n')
+    createtable(table_name,row_1,row_2,row_3,row_4)

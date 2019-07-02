@@ -1,17 +1,18 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'interface.ui'
-#
-# Created by: PyQt5 UI code generator 5.11.3
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 import database
 from database import connectdatabase
 import sqlite3
+import time
+
 
 class Ui_MainWindow(object):
+
+#Function for warning massages.
+
+    def warningmessages(self, message):
+        self.warningmassage.setText(f'{message}')
+
+# Function for loading our data.
 
     def loaddata(self):
         self.Databasenamelabel.setText(database.databasename())
@@ -20,34 +21,53 @@ class Ui_MainWindow(object):
         # connection.execute(query)
         result = connectdatabase('users.db').execute(query)
         self.pencere.setRowCount(0)
+        self.pencere.setAutoScroll(True)
+        self.pencere.setHorizontalHeaderLabels(('Name','Sirname','Age','Phone'))
+        self.pencere.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
         for row_number, row_data in enumerate(result):
             self.pencere.insertRow(row_number)
             for column_number, data in enumerate(row_data):
                 self.pencere.setItem(row_number,column_number,QtWidgets.QTableWidgetItem(str(data)))
 
+# Function for making the add user button work.
 
     def adduserbutton(self):
         check = database.checkuser(self.namebox.text(),self.sirnamebox.text())
         if self.namebox.text() == '' or self.sirnamebox.text() == '' or self.agebox.text() == '' or self.phonebox.text() == '':
-            self.warningmassage.setText('Error! Please fill all the areas!')
+            self.warningmessages("Error! Please fill all the areas!")
         elif check == True:
             self.warningmassage.setText('Error! User already exists!')
         else:
             database.insertuser(self.namebox.text(),self.sirnamebox.text(),self.agebox.text(),self.phonebox.text())
-            self.warningmassage.setText('User Added Successfully.')
+            self.warningmessages('User Added Successfully.')
             self.loadusersbtn.click()
+            self.usercount.display(database.countusers())
+            self.namebox.setText("")
+            self.sirnamebox.setText("")
+            self.agebox.setText("")
+            self.phonebox.setText("")
+
+
+# Function for making the delete user button work.
 
     def deleteuserbutton(self):
         check = database.checkuser(self.namebox.text(), self.sirnamebox.text())
         if self.namebox.text() == '' or self.sirnamebox.text() == '':
-            self.warningmassage.setText('Error! Please fill name and sirname areas!')
+            self.warningmessages('Error! Please fill name and sirname areas!')
         elif check == False:
-            self.warningmassage.setText('Error! User does not exists!')
+            self.warningmessages("Error! User does not exists!")
         else:
-            self.warningmassage.setText(f'User {self.namebox.text()} {self.sirnamebox.text()} Deleted Successfully.')
+            self.warningmessages(f'User {self.namebox.text()} {self.sirnamebox.text()} Deleted Successfully.')
             database.deleteuser(self.namebox.text(),self.sirnamebox.text())
             self.loadusersbtn.click()
+            self.usercount.display(database.countusers())
+            self.namebox.setText("")
+            self.sirnamebox.setText("")
+            self.agebox.setText("")
+            self.phonebox.setText("")
 
+
+# General UI Setting.
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -61,6 +81,7 @@ class Ui_MainWindow(object):
         self.adduserbtn.setFont(font)
         self.adduserbtn.setObjectName("adduserbtn")
 
+        # This is for calling adduserbutton function when add user button is pressed.
         self.adduserbtn.clicked.connect(self.adduserbutton)
 
         self.deluserbtn = QtWidgets.QPushButton(self.centralwidget)
@@ -70,6 +91,7 @@ class Ui_MainWindow(object):
         self.deluserbtn.setFont(font)
         self.deluserbtn.setObjectName("deluserbtn")
 
+        # This is for calling deleteuserbutton function when delete user button is pressed.
         self.deluserbtn.clicked.connect(self.deleteuserbutton)
 
         self.pencere = QtWidgets.QTableWidget(self.centralwidget)
@@ -92,6 +114,9 @@ class Ui_MainWindow(object):
         self.usercount = QtWidgets.QLCDNumber(self.centralwidget)
         self.usercount.setGeometry(QtCore.QRect(230, 490, 91, 41))
         self.usercount.setObjectName("usercount")
+
+        self.usercount.display(database.countusers()) # This makes the user count lcd display work.
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(20, 490, 181, 41))
         font = QtGui.QFont()
@@ -110,7 +135,7 @@ class Ui_MainWindow(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(590, 0, 201, 31))
+        self.label_3.setGeometry(QtCore.QRect(590, 0, 230, 31))
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -173,7 +198,7 @@ class Ui_MainWindow(object):
         self.loadusersbtn.setGeometry(QtCore.QRect(660, 60, 91, 31))
         self.loadusersbtn.setObjectName("loadusersbtn")
 
-        self.loadusersbtn.clicked.connect(self.loaddata)
+        self.loadusersbtn.clicked.connect(self.loaddata) # This makes load data button work.
 
         self.Databasenamelabel = QtWidgets.QLabel(self.centralwidget)
         self.Databasenamelabel.setGeometry(QtCore.QRect(540, 560, 250, 21))
@@ -202,21 +227,22 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.loadusersbtn.click()
 
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("SSS", "User Database GUI by Fatih Malakçı"))
         self.adduserbtn.setText(_translate("MainWindow", "Add User"))
         self.deluserbtn.setText(_translate("MainWindow", "Delete User"))
         self.users.setText(_translate("MainWindow", "User List"))
         self.label_2.setText(_translate("MainWindow", "Number of Users:"))
         self.label.setText(_translate("MainWindow", "The User Information is Provided by SQLite3 Database"))
-        self.label_3.setText(_translate("MainWindow", "User Database by Fatih Malakçı"))
+        self.label_3.setText(_translate("MainWindow", "User Database GUI by Fatih Malakçı"))
         self.label_4.setText(_translate("MainWindow", "github.com/fatihmalakci"))
         self.label_5.setText(_translate("MainWindow", "Enter User\'s Name/Sirname:"))
         self.label_6.setText(_translate("MainWindow", "Enter User\'s Age:"))
         self.label_7.setText(_translate("MainWindow", "Enter User\'s Phone:"))
         self.loadusersbtn.setText(_translate("MainWindow", "Load Users"))
-        self.menuUsers.setTitle(_translate("MainWindow", "Main Window"))
+        self.menuUsers.setTitle(_translate("", ""))
         self.actionMain_Window.setText(_translate("MainWindow", "Main Window"))
 
 if __name__ == "__main__":
