@@ -20,7 +20,7 @@ def insertuser(name,sirname,age,phone):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute("INSERT INTO users VALUES(?,?,?,?)",(name,sirname,age,phone))
-    print(f'User created Name : {name} Sirname : {sirname} Age : {age} Phone : {phone}')
+    print(f'User created Name : {name} Surname : {sirname} Age : {age} Phone : {phone}')
     conn.commit()
     conn.close()
     print('Database closed.')

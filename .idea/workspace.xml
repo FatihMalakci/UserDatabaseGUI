@@ -46,23 +46,23 @@
     <session id="467072726">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.2" value="3" />
-          <entry key="project.open.time.3" value="5" />
+          <entry key="project.open.time.3" value="6" />
           <entry key="project.open.time.4" value="2" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5762" />
-          <entry key="txt" value="76" />
+          <entry key="py" value="5810" />
+          <entry key="txt" value="190" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="76" />
-          <entry key="Python" value="5762" />
+          <entry key="PLAIN_TEXT" value="190" />
+          <entry key="Python" value="5810" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -88,11 +88,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="177" column="26" lean-forward="true" selection-start-line="177" selection-start-column="26" selection-end-line="177" selection-end-column="26" />
+            <state relative-caret-position="206">
+              <caret line="177" column="66" selection-start-line="177" selection-start-column="66" selection-end-line="177" selection-end-column="66" />
               <folding>
-                <element signature="e#198#241#0" expanded="true" />
-                <marker date="1562072115793" expanded="true" signature="2177:2234" ph="..." />
+                <marker date="1562073566522" expanded="true" signature="1977:2034" ph="..." />
               </folding>
             </state>
           </provider>
@@ -101,12 +100,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="63" column="46" lean-forward="true" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
+            <state relative-caret-position="462">
+              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
               <folding>
-                <marker date="1562072115803" expanded="true" signature="52:186" ph="..." />
-                <marker date="1562072115803" expanded="true" signature="1638:1836" ph="..." />
-                <marker date="1562072115803" expanded="true" signature="1656:1836" ph="..." />
+                <marker date="1562073445860" expanded="true" signature="52:186" ph="..." />
+                <marker date="1562073445860" expanded="true" signature="1638:1836" ph="..." />
+                <marker date="1562073445860" expanded="true" signature="1656:1836" ph="..." />
               </folding>
             </state>
           </provider>
@@ -135,6 +134,9 @@
       <find>userco</find>
       <find>label_3</find>
       <find>Error!</find>
+      <find>Sirname</find>
+      <find>fill</find>
+      <find>warning</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,8 +152,8 @@
       <list>
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/deneme.py" />
-        <option value="$PROJECT_DIR$/interface.py" />
         <option value="$PROJECT_DIR$/database.py" />
+        <option value="$PROJECT_DIR$/interface.py" />
       </list>
     </option>
   </component>
@@ -330,19 +332,32 @@
       <option name="project" value="LOCAL" />
       <updated>1561999862650</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="All main functions completed. Reached Version 1">
+      <created>1562072309004</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1562072309004</updated>
+    </task>
+    <task id="LOCAL-00007" summary="All main functions completed. Reached Version 1">
+      <created>1562072330861</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1562072330861</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1313" y="0" width="1254" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13327949" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.064453125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32627118" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -389,7 +404,8 @@
     <MESSAGE value="database wip" />
     <MESSAGE value="database view added" />
     <MESSAGE value="Main functionality working now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Main functionality working now." />
+    <MESSAGE value="All main functions completed. Reached Version 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="All main functions completed. Reached Version 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,32 +420,25 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/deneme.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/deneme.py" />
     <entry file="file://$PROJECT_DIR$/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="63" column="46" lean-forward="true" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
+        <state relative-caret-position="462">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
           <folding>
-            <marker date="1562072115803" expanded="true" signature="52:186" ph="..." />
-            <marker date="1562072115803" expanded="true" signature="1638:1836" ph="..." />
-            <marker date="1562072115803" expanded="true" signature="1656:1836" ph="..." />
+            <marker date="1562073445860" expanded="true" signature="52:186" ph="..." />
+            <marker date="1562073445860" expanded="true" signature="1638:1836" ph="..." />
+            <marker date="1562073445860" expanded="true" signature="1656:1836" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="177" column="26" lean-forward="true" selection-start-line="177" selection-start-column="26" selection-end-line="177" selection-end-column="26" />
+        <state relative-caret-position="206">
+          <caret line="177" column="66" selection-start-line="177" selection-start-column="66" selection-end-line="177" selection-end-column="66" />
           <folding>
-            <element signature="e#198#241#0" expanded="true" />
-            <marker date="1562072115793" expanded="true" signature="2177:2234" ph="..." />
+            <marker date="1562073566522" expanded="true" signature="1977:2034" ph="..." />
           </folding>
         </state>
       </provider>

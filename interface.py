@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         result = connectdatabase('users.db').execute(query)
         self.pencere.setRowCount(0)
         self.pencere.setAutoScroll(True)
-        self.pencere.setHorizontalHeaderLabels(('Name','Sirname','Age','Phone'))
+        self.pencere.setHorizontalHeaderLabels(('Name','Surname','Age','Phone'))
         self.pencere.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
         for row_number, row_data in enumerate(result):
             self.pencere.insertRow(row_number)
@@ -53,7 +53,7 @@ class Ui_MainWindow(object):
     def deleteuserbutton(self):
         check = database.checkuser(self.namebox.text(), self.sirnamebox.text())
         if self.namebox.text() == '' or self.sirnamebox.text() == '':
-            self.warningmessages('Error! Please fill name and sirname areas!')
+            self.warningmessages('Error! Please fill Name and Surname areas!')
         elif check == False:
             self.warningmessages("Error! User does not exists!")
         else:
@@ -175,7 +175,7 @@ class Ui_MainWindow(object):
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
         self.label_7.setGeometry(QtCore.QRect(630, 250, 151, 21))
         self.warningmassage = QtWidgets.QLabel(self.centralwidget)
-        self.warningmassage.setGeometry(QtCore.QRect(460, 420, 341, 51))
+        self.warningmassage.setGeometry(QtCore.QRect(460, 420, 350, 51))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -238,7 +238,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "The User Information is Provided by SQLite3 Database"))
         self.label_3.setText(_translate("MainWindow", "User Database GUI by Fatih Malakçı"))
         self.label_4.setText(_translate("MainWindow", "github.com/fatihmalakci"))
-        self.label_5.setText(_translate("MainWindow", "Enter User\'s Name/Sirname:"))
+        self.label_5.setText(_translate("MainWindow", "Enter User\'s Name/Surname:"))
         self.label_6.setText(_translate("MainWindow", "Enter User\'s Age:"))
         self.label_7.setText(_translate("MainWindow", "Enter User\'s Phone:"))
         self.loadusersbtn.setText(_translate("MainWindow", "Load Users"))
