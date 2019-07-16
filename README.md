@@ -5,7 +5,9 @@
 </div>
 
 
-A simple Python Gui application for storing users names, age and phone numbers in a SQLite3 database.
+
+# A simple Python Gui application for storing users names, age and phone numbers in a SQLite3 database.
+
 
 ## Usage :
 
