@@ -7,7 +7,7 @@
 
 
 
-**A simple Python GUI application for storing users names, age and phone numbers in a SQLite3 database.**
+**A simple Python PyQT5 GUI application for storing users names, age and phone numbers in a SQLite3 database.**
 
 
 
