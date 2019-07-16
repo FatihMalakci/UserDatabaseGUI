@@ -1,7 +1,7 @@
 # User Database GUI
 
 <div align="center">
-    <img src="gitphoto.png" width="400px"</img> 
+    <img src="gitphoto.png" width="500px"</img> 
 </div>
 
 
