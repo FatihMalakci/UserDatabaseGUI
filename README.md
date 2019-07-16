@@ -1,6 +1,11 @@
 # User Database GUI
 
-A simple python gui for storing users names, age and phone numbers in a SQLite3 database.
+<div align="center">
+    <img src="gitphoto.png" width="400px"</img> 
+</div>
+
+
+A simple Python Gui application for storing users names, age and phone numbers in a SQLite3 database.
 
 ## Usage :
 
@@ -18,5 +23,3 @@ A simple python gui for storing users names, age and phone numbers in a SQLite3 
 - Python3
 - PyQT5 Module
 
-
-![Deneme](gitphoto.png?raw=true "Title")
